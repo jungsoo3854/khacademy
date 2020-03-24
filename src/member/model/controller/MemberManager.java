@@ -84,24 +84,25 @@ public class MemberManager {
 	}
 	
 	public void updatePwd() {
-		do {
-			
-			System.out.println("수정할 회원의 아이디를 입력하세요 : ");
-			String userId = sc.next();
-			
-			for(int i = 0; i<m.length; i++) {
-				if(m[i].equals(userId)) {
-					System.out.println("바꿀 비밀번호를 입력하세요 : ");
-					int rePwd = sc.nextInt();
-					userPwd.setUserPwd(rePwd);
-					System.out.println("패스워드 수정이 완료되었습니다."); return;
-				} else {
-					System.out.println("수정할 회원이 존재하지 않습니다."); return;
-				}
+		
+		System.out.println("수정할 회원의 아이디를 입력하세요 : ");
+		String userId = sc.next();
+		
+		int count = 0;
+		for(int i = 0; i<m.length; i++) {
+			if(m[i].getUserId().equals(userId)) {
+				count++;
+				System.out.println("바꿀 비밀번호를 입력하세요 : ");
+				String rePwd = sc.nextLine();
+				m[i].setUserPwd(rePwd);
+				System.out.println("패스워드 수정이 완료되었습니다."); return;
 			}
-			
-		} while(true);
-	}
+		}
+		
+		if(count == 0) {
+			System.out.println("검색한 회원 정보가 존재하지 않습니다.");
+		}
+ }
 	
 	public void updateName()
 	
