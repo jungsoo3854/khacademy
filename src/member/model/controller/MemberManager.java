@@ -26,6 +26,7 @@ public class MemberManager {
 			int age = sc.nextInt();
 			System.out.println("성별 : ");
 			char gender = sc.next().charAt(0);
+			sc.nextLine();
 			System.out.println("이메일 : ");
 			String email = sc.next();
 			
@@ -145,33 +146,49 @@ public class MemberManager {
 	}
 	
 	public void deleteOne() {
-		do {
-			System.out.println("탈퇴할 회원의 아이디를 입력하세요 : ");
-			String userId = sc.next();
-			
-			for(int i = 0; i<m.length; i++) {
-				if(m[i].equals(userId)) {
-					m[i] = m[i+1];
-					stn--;
-				} else {
-					System.out.println("삭제할 회원 정보가 존재하지 않습니다." );
-				}
+		
+		System.out.println("탈퇴할 회원의 아이디를 입력하세요 : ");
+		String userId = sc.next();
+		
+		int count = 0;
+		for(int i = 0; i<ctn; i++) {
+			if(m[i].getUserId().equals(userId)) {
+				count++;
+				ctn--;
+				for(int j = i; j<ctn; j++) {
+					m[j] = m[j+1];
+				} System.out.println("회원탈퇴가 완료되었습니다.");
 			}
-		}while(true);
+		}
+		
+		if(count == 0) {
+			System.out.println("삭제할 회원 정보가 존재하지 않습니다.");
+		}
 	}
 	
 	public void deleteAll() {
-			for(int i = 0; i<m.length; i++) {
-				System.out.println(m[i]);
-			}
+		
+		for(int i = 0; i<m.length; i++) {
+			m[i].setUserId("");
+			m[i].setUserPwd("");
+			m[i].setUserName("");
+			m[i].setAge(0);
+			m[i].setGender('\u0000');
+			m[i].setEmail("");
+		}
+		ctn = 0;
+		System.out.println("전부 삭제되었습니다.");
 	}
 	
 	public void printAllMember() {
 		
-		do {
-			for(int i = 0; i<=stn; i++) {
-				System.out.println(m[i].);
-			}
+		for(int i = 0; i<m.length; i++) {
+			System.out.println("아이디 : " + m[i].getUserId());
+			System.out.println("비밀번호 : " + m[i].getUserPwd());
+			System.out.println("이름 : " + m[i].getUserName());
+			System.out.println("나이 : " + m[i].getAge());
+			System.out.println("성별 : " + m[i].getGender());
+			System.out.println("이메일 : " + m[i].getEmail());
 		}
 	}
 	
