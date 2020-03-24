@@ -34,10 +34,8 @@ public class MemberManager {
 			}System.out.println("입력이 완료되었습니다. 메인 메뉴로 돌아갑니다.");
 		}
 		
-	
 	public void searchId() {
 		
-		do {
 			System.out.println("검색할 아이디를 입력하세요 : ");
 			String userId = sc.next();
 			
@@ -48,8 +46,6 @@ public class MemberManager {
 					System.out.println("검색한 회원 정보가 존재하지 않습니다."); return;
 				}
 			} 
-			
-		} while(true);
 		
 	}
 	
@@ -140,6 +136,13 @@ public class MemberManager {
 		}
 	}
 	
-	public void printOne(Member m)
+	public void printOne(Member m) {
+		System.out.println("아이디 : " + m.getUserId());
+		System.out.println("비밀번호 : " + m.getUserPwd());
+		System.out.println("이름 : " + m.getUserName());
+		System.out.println("나이 : " + m.getAge());
+		System.out.println("성별 : " + m.getGender());
+		System.out.println("이메일 : " + m.getEmail());
+	}
 
 }
