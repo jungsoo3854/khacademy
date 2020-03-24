@@ -104,9 +104,45 @@ public class MemberManager {
 		}
  }
 	
-	public void updateName()
+	public void updateName() {
+		System.out.println("수정할 회원의 이름를 입력하세요 : ");
+		String userName = sc.next();
+		
+		int count = 0;
+		for(int i = 0; i<m.length; i++) {
+			if(m[i].getUserId().equals(userName)) {
+				count++;
+				System.out.println("바꿀 이름를 입력하세요 : ");
+				String reName = sc.nextLine();
+				m[i].setUserName(reName);
+				System.out.println("이름 수정이 완료되었습니다."); return;
+			}
+		}
+		
+		if(count == 0) {
+			System.out.println("검색한 회원 정보가 존재하지 않습니다.");
+		}
+	}
 	
-	public void updateEmail()
+	public void updateEmail() {
+		System.out.println("수정할 회원의 이름을 입력하세요 : ");
+		String email = sc.next();
+		
+		int count = 0;
+		for(int i = 0; i<m.length; i++) {
+			if(m[i].getEmail().equals(email)) {
+				count++;
+				System.out.println("바꿀 이메일을 입력하세요 : ");
+				String reEmail = sc.nextLine();
+				m[i].setUserPwd(reEmail);
+				System.out.println("이메일 수정이 완료되었습니다."); return;
+			}
+		}
+		
+		if(count == 0) {
+			System.out.println("검색한 회원 정보가 존재하지 않습니다.");
+		}
+	}
 	
 	public void deleteOne() {
 		do {
