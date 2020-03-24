@@ -38,48 +38,49 @@ public class MemberManager {
 		
 			System.out.println("검색할 아이디를 입력하세요 : ");
 			String userId = sc.next();
+			int count = 0;
 			
 			for(int i = 0; i<m.length; i++) {
 				if(m[i].equals(userId)) {
-					printone(m[i]);
-				} else {
-					System.out.println("검색한 회원 정보가 존재하지 않습니다."); return;
+					printOne(m[i]); break;
 				}
-			} 
-		
+			}
+			
+			if(count == 0) {
+				System.out.println("검색한 회원 정보가 존재하지 않습니다.");
+			}
 	}
 	
 	public void searchName() {
 		
-		do {
-			System.out.println("검색할 이름을 입력하세요 : ");
-			String userName = sc.next();
+		System.out.println("검색할 이름을 입력하세요 : ");
+		String userName = sc.next();
+		int count = 0;
 			
-			for(int i = 0; i<m.length; i++) {
+		for(int i = 0; i<m.length; i++) {
 				if(m[i].equals(userName)) {
-					printone(m[i]);
-				} else {
-					System.out.println("검색한 회원 정보가 존재하지 않습니다.");
-				} return;
-			} 
-			
-		} while(true);
+					printOne(m[i]); break;
+			}
+		}
+			if(count == 0) {
+				System.out.println("검색한 회원 정보가 존재하지 않습니다.");
+		}
 	}
 	
 	public void searchEmail() {
-		do {
+		
 			System.out.println("검색할 이메일을 입력하세요 : ");
 			String email = sc.next();
+			int count = 0;
 			
 			for(int i = 0; i<m.length; i++) {
-				if(m[i].equals(email)) {
-					printone(m[i]);
-				} else {
+					if(m[i].equals(email)) {
+						printOne(m[i]); break;
+				}
+			}
+				if(count == 0) {
 					System.out.println("검색한 회원 정보가 존재하지 않습니다.");
-				} return;
-			} 
-			
-		} while(true);
+			}
 	}
 	
 	public void updatePwd() {
