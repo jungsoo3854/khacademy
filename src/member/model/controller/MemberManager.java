@@ -28,6 +28,7 @@ public class MemberManager {
 			System.out.println("¿Ã∏ﬁ¿œ : ");
 			String email = sc.next();
 			
+			
 			for(int i = 0; i<m.length; i++) {
 				m[i] = new Member(userId, userPwd, userName, age, gender, email);
 				//m.length++;
